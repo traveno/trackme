@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkoutSelectComponent implements OnInit {
 
+  intensityNames: string[] = ['low', 'medium', 'high'];
+  durationNames: string[] = ['15 minutes', '30 minutes', '60 minutes'];
 
   intensity: number = 1;
   duration: number = 1;
+  hasActiveWorkout: boolean = false;
 
   constructor() { }
 
