@@ -1,3 +1,13 @@
 .login-form {
     padding-top: 100px;
 }
+
+.button {
+    background-color: orange;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.button:last-child {
+    margin-left: 15px;
+}

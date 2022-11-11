@@ -1,5 +1,5 @@
 <div class="login-form">
-    <div fxLayout="column" fxLayoutAlign="start center">
+    <div fxLayout="column" fxLayoutAlign="center center">
         <div>
             Welcome to TrackMe @Dixon<br><br>
         </div>
@@ -12,8 +12,10 @@
             <input type="password" id="password" name="password"><br><br>
         </div>
         <div>
-            <button routerLink="/home" (click)="this.loginManager.setLoggedIn(true)">Login</button>
-            <button routerLink="/register">Register</button>
+            <div fxLayout="row">
+                <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true)">Login</div>
+                <div class="button" routerLink="/register">Register</div>
+            </div>
         </div>
     </div>
 </div>

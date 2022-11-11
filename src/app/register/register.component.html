@@ -12,8 +12,10 @@
             <input type="password" id="password" name="password"><br><br>
         </div>
         <div>
-            <button routerLink="/home" (click)="this.loginManager.setLoggedIn(true)">Create Account</button>
-            <button routerLink="/login">Go Back</button>
+            <div fxLayout="row">
+                <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true)">Create Account</div>
+                <div class="button" routerLink="/login">Go Back</div>
+            </div>
         </div>
     </div>
 </div>
