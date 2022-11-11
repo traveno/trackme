@@ -7,6 +7,7 @@ import { LoginManagerService } from '../login-manager.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  username: string = "";
 
   constructor(public loginManager: LoginManagerService) { }
 

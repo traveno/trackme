@@ -6,11 +6,12 @@ import { Injectable } from '@angular/core';
 export class LoginManagerService {
 
   isLoggedIn: boolean = false;
+  username: string | undefined = undefined;
 
   constructor() { }
-  
 
-  setLoggedIn(newStatus: boolean) {
+  setLoggedIn(newStatus: boolean, newUsername: string = "") {
     this.isLoggedIn = newStatus;
+    this.username = newUsername;
   }
 }

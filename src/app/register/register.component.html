@@ -5,7 +5,7 @@
         </div>
         <div>
             <label for="username">Username: </label>
-            <input type="text" id="username" name="username"><br><br>
+            <input [(ngModel)]="username" type="text" id="username" name="username"><br><br>
         </div>
         <div>
             <label for="password">Password: </label>
@@ -13,7 +13,7 @@
         </div>
         <div>
             <div fxLayout="row">
-                <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true)">Create Account</div>
+                <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true, username)">Create Account</div>
                 <div class="button" routerLink="/login">Go Back</div>
             </div>
         </div>

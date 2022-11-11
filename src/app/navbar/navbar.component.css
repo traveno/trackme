@@ -6,6 +6,7 @@
     padding-left: 25px;
     padding: 15px;
     border-right: thin solid white;
+    cursor: pointer;
 }
 
 .navbar-item:hover {

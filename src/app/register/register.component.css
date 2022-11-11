@@ -6,6 +6,7 @@
     background-color: orange;
     padding: 15px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .button:last-child {

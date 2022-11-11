@@ -1,9 +1,12 @@
 <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 50px;">
-    <div><h1>Hello Stephen</h1></div>
+    <div><h1>Hello {{loginManager.username}}</h1></div>
     <div class="big-button" routerLink="/workout">
         Select Workout
     </div>
     <div class="big-button" routerLink="/stats">
         View Previous Statistics
+    </div>
+    <div class="big-button">
+        Generate Report
     </div>
 </div>

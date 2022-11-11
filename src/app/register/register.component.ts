@@ -8,6 +8,8 @@ import { LoginManagerService } from '../login-manager.service';
 })
 export class RegisterComponent implements OnInit {
 
+  username: string = "";
+
   constructor(public loginManager: LoginManagerService) { }
 
   ngOnInit(): void {
