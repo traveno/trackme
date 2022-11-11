@@ -1,0 +1,19 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div fxLayout="row" fxLayoutAlign="space-evenly start">
+        <div fxLayout="column">
+            <h1>Intensity</h1>
+            <div class="intensity-button" (click)="intensity = 3" [class.selected]="intensity == 3">High</div>
+            <div class="intensity-button" (click)="intensity = 2" [class.selected]="intensity == 2">Medium</div>
+            <div class="intensity-button" (click)="intensity = 1" [class.selected]="intensity == 1">Low</div>
+        </div>
+        <div fxLayout="column" style="margin-left: 30px;">
+            <h1>Duration</h1>
+            <div class="intensity-button" (click)="duration = 3" [class.selected]="duration == 3">Long (60 mins)</div>
+            <div class="intensity-button" (click)="duration = 2" [class.selected]="duration == 2">Medium (30 mins)</div>
+            <div class="intensity-button" (click)="duration = 1" [class.selected]="duration == 1">Short (15 mins)</div>
+        </div>
+    </div>
+    <div>
+        <div class="begin-workout">Begin Workout</div>
+    </div>
+</div>

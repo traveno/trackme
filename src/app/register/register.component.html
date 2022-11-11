@@ -1,0 +1,19 @@
+<div class="login-form">
+    <div fxLayout="column" fxLayoutAlign="start center">
+        <div>
+            Please enter your desired username and password<br><br>
+        </div>
+        <div>
+            <label for="username">Username: </label>
+            <input type="text" id="username" name="username"><br><br>
+        </div>
+        <div>
+            <label for="password">Password: </label>
+            <input type="password" id="password" name="password"><br><br>
+        </div>
+        <div>
+            <button routerLink="/home" (click)="this.loginManager.setLoggedIn(true)">Create Account</button>
+            <button routerLink="/login">Go Back</button>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { LoginManagerService } from './login-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'trackme';
+
+  constructor(private loginManager: LoginManagerService, router: Router) {
+    if (!this.loginManager.isLoggedIn)
+      router.navigate(['login']);
+  }
 }

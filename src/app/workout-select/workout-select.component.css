@@ -1,0 +1,19 @@
+.intensity-button {
+    padding: 15px;
+    background-color: orange;
+    margin-top: 15px;
+    border-radius: 5px;
+    border: thin dotted orange;
+}
+
+.selected {
+    background-color: #f7e2bc;
+    border: thin dotted orange;
+}
+
+.begin-workout {
+    margin-top: 25px;
+    padding: 15px;
+    background-color: lightgreen;
+    border-radius: 5px;
+}

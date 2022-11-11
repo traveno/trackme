@@ -1,0 +1,17 @@
+<div fxLayout="row" fxLayoutAlign="start" class="navbar">
+    <div class="navbar-item" routerLink="/home"
+        *ngIf="this.loginManager.isLoggedIn">
+        Home
+    </div>
+    <div class="navbar-item" routerLink="/stats"
+        *ngIf="this.loginManager.isLoggedIn">
+        MyStats
+    </div>
+    <div class="navbar-item" routerLink="/login" *ngIf="this.loginManager.isLoggedIn"
+        (click)="this.loginManager.setLoggedIn(false)">
+        Logout
+    </div>
+    <div style="margin-left: auto; padding: 15px;">
+        <i>TrackMe @Dixon</i>
+    </div>
+</div>
