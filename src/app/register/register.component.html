@@ -1,28 +1,36 @@
-<div class="login-form">
+<div class="login-page">
     <div fxLayout="column" fxLayoutAlign="start center">
-        <div>
-            Please enter your desired username and password<br><br>
+        <div class="welcome-message">
+            Welcome to TrackMe @Dixon<br><br>
         </div>
-        <div>
-            <label for="username">Username: </label>
-            <input [(ngModel)]="username" type="text" id="username" name="username"><br><br>
-        </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"><br><br>
-        </div>
-        <div>
-            <label for="height">Height (in): </label>
-            <input type="number" id="height" name="height"><br><br>
-        </div>
-        <div>
-            <label for="weight">Weight (lbs): </label>
-            <input type="number" id="weight" name="weight"><br><br>
-        </div>
-        <div>
-            <div fxLayout="row">
-                <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true, username)">Create Account</div>
-                <div class="button" routerLink="/login">Go Back</div>
+        <div class="login-form" fxLayout="column" fxLayoutAlign="center center">
+            <div>
+                <img src="/assets/osu_logo.jpeg" style="margin: auto; display: block; width: 70%; margin-bottom: 15px;">
+            </div>
+            <div>
+                Please enter your desired username and password<br><br>
+            </div>
+            <div>
+                <label for="username">Username: </label>
+                <input [(ngModel)]="username" type="text" id="username" name="username"><br><br>
+            </div>
+            <div>
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password"><br><br>
+            </div>
+            <div>
+                <label for="height">Height (in): </label>
+                <input type="number" id="height" name="height"><br><br>
+            </div>
+            <div>
+                <label for="weight">Weight (lbs): </label>
+                <input type="number" id="weight" name="weight"><br><br>
+            </div>
+            <div>
+                <div fxLayout="row">
+                    <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true, username)">Create Account</div>
+                    <div class="button" routerLink="/login">Go Back</div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,20 +1,25 @@
-<div class="login-form">
+<div class="login-page">
     <div fxLayout="column" fxLayoutAlign="center center">
-        <div>
+        <div class="welcome-message">
             Welcome to TrackMe @Dixon<br><br>
         </div>
-        <div>
-            <label for="username">Username: </label>
-            <input [(ngModel)]="username" type="text" id="username" name="username"><br><br>
-        </div>
-        <div>
-            <label for="password">Password: </label>
-            <input type="password" id="password" name="password"><br><br>
-        </div>
-        <div>
-            <div fxLayout="row">
-                <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true, username)">Login</div>
-                <div class="button" routerLink="/register">Register</div>
+        <div fxLayout="column" fxLayoutAlign="center center" class="login-form">
+            <div>
+                <img src="/assets/osu_logo.jpeg" style="margin: auto; display: block; width: 70%; margin-bottom: 15px;">
+            </div>
+            <div>
+                <label for="username">Username: </label>
+                <input [(ngModel)]="username" type="text" id="username" name="username"><br><br>
+            </div>
+            <div>
+                <label for="password">Password: </label>
+                <input type="password" id="password" name="password"><br><br>
+            </div>
+            <div>
+                <div fxLayout="row">
+                    <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true, username)">Login</div>
+                    <div class="button" routerLink="/register">Register</div>
+                </div>
             </div>
         </div>
     </div>
