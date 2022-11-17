@@ -19,3 +19,27 @@
     border-radius: 5px;
     cursor: pointer;
 }
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table th {
+    background-color: orange;
+    color: white;
+    text-align: left;
+}
+
+table tr:hover {
+    background-color: #ddd;
+}

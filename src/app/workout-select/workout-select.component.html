@@ -28,6 +28,24 @@
         <div fxLayout="column">
             <div style="margin-top: 25px;">You selected a {{intensityNames[intensity]}} intensity workout, for a duration of {{durationNames[duration]}}.</div>
             <div style="margin-top: 25px;">Let's make some gains.</div>
+            <table style="margin-top: 25px;">
+                <thead>
+                    <tr>
+                        <th>Workout #</th>
+                        <th>Name</th>
+                        <th>Sets</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let exercise of exercises">
+                        <td>{{exercises.indexOf(exercise) + 1}}</td>
+                        <td>{{exercise.name}}</td>
+                        <td>{{exercise.sets + intensity}} sets</td>
+                        <td>{{exercise.reps + duration}} reps</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
