@@ -1,6 +1,12 @@
 <div fxLayout="column" fxLayoutAlign="center center" *ngIf="!hasActiveWorkout">
     <div fxLayout="row" fxLayoutAlign="space-evenly start">
         <div fxLayout="column">
+            <h1>Type</h1>
+            <div class="intensity-button" (click)="workout = 'upper'" [class.selected]="workout === 'upper'">Upper Body</div>
+            <div class="intensity-button" (click)="workout = 'lower'" [class.selected]="workout === 'lower'">Lower Body</div>
+            <div class="intensity-button" (click)="workout = 'core'" [class.selected]="workout === 'core'">Core</div>
+        </div>
+        <div fxLayout="column" style="margin-left: 30px;">
             <h1>Intensity</h1>
             <div class="intensity-button" (click)="intensity = 2" [class.selected]="intensity == 2">High</div>
             <div class="intensity-button" (click)="intensity = 1" [class.selected]="intensity == 1">Medium</div>
@@ -14,7 +20,7 @@
         </div>
     </div>
     <div>
-        <div class="begin-workout" (click)="hasActiveWorkout = true">Begin Workout</div>
+        <div class="begin-workout" (click)="generateWorkout()">Begin Workout</div>
     </div>
 </div>
 <div *ngIf="hasActiveWorkout">
