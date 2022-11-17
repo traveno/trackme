@@ -4,6 +4,7 @@
     margin-top: 15px;
     border-radius: 5px;
     border: thin dotted orange;
+    cursor: pointer;
 }
 
 .selected {
@@ -16,4 +17,5 @@
     padding: 15px;
     background-color: lightgreen;
     border-radius: 5px;
+    cursor: pointer;
 }
