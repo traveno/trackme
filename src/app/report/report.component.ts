@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginManagerService } from '../login-manager.service';
 
 @Component({
   selector: 'app-report',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportComponent implements OnInit {
 
-  constructor() { }
+  constructor(public loginManager: LoginManagerService) { }
 
   ngOnInit(): void {
   }
