@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { StatsComponent } from './stats/stats.component';
 import { WorkoutSelectComponent } from './workout-select/workout-select.component';
 import { FormsModule } from '@angular/forms';
+import { ReportComponent } from './report/report.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule } from '@angular/forms';
     RegisterComponent,
     HomeComponent,
     StatsComponent,
-    WorkoutSelectComponent
+    WorkoutSelectComponent,
+    ReportComponent
   ],
   imports: [
     BrowserModule,
