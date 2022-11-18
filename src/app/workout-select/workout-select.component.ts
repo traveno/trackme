@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { upperBodyDefs } from './workout-definitions';
+import { coreDefs, lowerBodyDefs, upperBodyDefs } from './workout-definitions';
 
 
 export interface Exercise {
@@ -34,6 +34,10 @@ export class WorkoutSelectComponent implements OnInit {
   generateWorkout() {
     if (this.workout === 'upper')
       this.exercises = upperBodyDefs;
+    else if (this.workout === 'lower')
+      this.exercises = lowerBodyDefs;
+    else if (this.workout === 'core')
+      this.exercises = coreDefs;
 
     this.hasActiveWorkout = true;
   }
