@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
+import { User } from './models/user.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginManagerService {
 
-  isLoggedIn: boolean = false;
-  username: string | undefined = undefined;
+  user: User | undefined = undefined;
 
   constructor() { }
 
-  setLoggedIn(newStatus: boolean, newUsername: string = "") {
-    this.isLoggedIn = newStatus;
-    this.username = newUsername;
+  isLoggedIn(): boolean {
+    return this.user !== undefined;
   }
 }

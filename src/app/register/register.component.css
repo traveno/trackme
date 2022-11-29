@@ -35,3 +35,8 @@
 .button:last-child {
     margin-left: 15px;
 }
+
+.error {
+    color: red;
+    padding: 10px;
+}

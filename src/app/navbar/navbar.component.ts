@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
 import { LoginManagerService } from '../login-manager.service';
 
 @Component({
@@ -8,9 +9,16 @@ import { LoginManagerService } from '../login-manager.service';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(public loginManager: LoginManagerService) { }
+  constructor(public loginManager: LoginManagerService, private api: ApiService) { }
 
   ngOnInit(): void {
+  }
+
+
+  deleteMyStats() {
+    this.api.deleteMyStats(this.loginManager.user?._id!).subscribe(results => {
+      console.log('Deleted', results);
+    })
   }
 
 }

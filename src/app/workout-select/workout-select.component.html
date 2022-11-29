@@ -23,7 +23,7 @@
         <div class="begin-workout" (click)="generateWorkout()">Begin Workout</div>
     </div>
 </div>
-<div *ngIf="hasActiveWorkout">
+<div fxLayout="column" fxLayoutAlign="center center" *ngIf="hasActiveWorkout">
     <div fxLayout="row" fxLayoutAlign="space-evenly start">
         <div fxLayout="column">
             <div style="margin-top: 25px;">You selected a {{intensityNames[intensity]}} intensity workout, for a duration of {{durationNames[duration]}}.</div>
@@ -47,5 +47,10 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div style="margin-top: 25px;">
+        <label for="weight">What is your weight after the workout?</label><br><br>
+        <input [(ngModel)]="weight" type="text" id="weight" name="weight">
+        <div class="begin-workout" (click)="completeWorkout()">I'm Done!</div> 
     </div>
 </div>

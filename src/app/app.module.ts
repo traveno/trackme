@@ -12,6 +12,7 @@ import { HomeComponent } from './home/home.component';
 import { StatsComponent } from './stats/stats.component';
 import { WorkoutSelectComponent } from './workout-select/workout-select.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { ReportComponent } from './report/report.component';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ReportComponent } from './report/report.component';
     BrowserModule,
     AppRoutingModule,
     FlexLayoutModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

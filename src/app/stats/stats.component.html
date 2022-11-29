@@ -6,46 +6,16 @@
         <table>
             <thead>
                 <tr>
-                    <th>Day</th>
                     <th>Date</th>
-                    <th>Completed</th>
+                    <th>Exercise Name</th>
+                    <th>Recorded Body Weight</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Wednesday</td>
-                    <td>11/16/22</td>
-                    <td>Core</td>
-                </tr>
-                <tr>
-                    <td>Tuesday</td>
-                    <td>11/15/22</td>
-                    <td>Lower Body</td>
-                </tr>
-                <tr>
-                    <td>Monday</td>
-                    <td>11/14/22</td>
-                    <td>Upper Body</td>
-                </tr>
-                <tr>
-                    <td>Sunday</td>
-                    <td>11/13/22</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>Saturday</td>
-                    <td>11/12/22</td>
-                    <td>Core</td>
-                </tr>
-                <tr>
-                    <td>Friday</td>
-                    <td>11/11/22</td>
-                    <td>Lower Body</td>
-                </tr>
-                <tr>
-                    <td>Thursday</td>
-                    <td>11/10/22</td>
-                    <td>Upper Body</td>
+                <tr *ngFor="let stat of stats">
+                    <td>{{ toPrettyDate(stat.createdAt!) }}</td>
+                    <td>{{ stat.workout }}</td>
+                    <td>{{ stat.weight }}</td>
                 </tr>
             </tbody>
         </table>

@@ -12,3 +12,11 @@
 .navbar-item:hover {
     background-color: white;
 }
+
+.navbar-debug {
+    color: red;
+    padding-left: 25px;
+    padding: 15px;
+    border-right: thin solid white;
+    cursor: pointer;
+}

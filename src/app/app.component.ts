@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'trackme';
 
   constructor(private loginManager: LoginManagerService, router: Router) {
-    if (!this.loginManager.isLoggedIn)
+    if (!this.loginManager.isLoggedIn())
       router.navigate(['login']);
   }
 }

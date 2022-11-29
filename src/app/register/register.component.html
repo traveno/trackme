@@ -7,6 +7,9 @@
             <div>
                 <img src="/assets/osu_logo.jpeg" style="margin: auto; display: block; width: 70%; margin-bottom: 15px;">
             </div>
+            <div class="error">
+                {{ errorMessage }}
+            </div>
             <div>
                 <table>
                     <tr>
@@ -14,22 +17,30 @@
                         <td><input [(ngModel)]="username" type="text" id="username" name="username"></td>
                     </tr>
                     <tr>
+                        <td><label for="realname">Your real name: </label></td>
+                        <td><input [(ngModel)]="realname" type="text" id="realname" name="realname"></td>
+                    </tr>
+                    <tr>
                         <td><label for="password">Password: </label></td>
-                        <td><input type="password" id="password" name="password"></td>
+                        <td><input [(ngModel)]="password" type="password" id="password" name="password"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="pin">Desired PIN #: </label></td>
+                        <td><input [(ngModel)]="pin" type="number" id="pin" name="pin"></td>
                     </tr>
                     <tr>
                         <td><label for="height">Height (in): </label></td>
-                        <td><input type="number" id="height" name="height"></td>
+                        <td><input [(ngModel)]="height" type="number" id="height" name="height"></td>
                     </tr>
                     <tr>
                         <td><label for="weight">Weight (lbs): </label></td>
-                        <td><input type="number" id="weight" name="weight"></td>
+                        <td><input [(ngModel)]="weight" type="number" id="weight" name="weight"></td>
                     </tr>
                 </table><br><br>
             </div>
             <div>
                 <div fxLayout="row">
-                    <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true, username)">Create Account</div>
+                    <div class="button" (click)="register()">Create Account</div>
                     <div class="button" routerLink="/login">Go Back</div>
                 </div>
             </div>

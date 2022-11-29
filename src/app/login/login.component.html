@@ -7,6 +7,9 @@
             <div>
                 <img src="/assets/osu_logo.jpeg" style="margin: auto; display: block; width: 70%; margin-bottom: 15px;">
             </div>
+            <div class="error">
+                {{ errorMessage }}
+            </div>
             <div>
                 <table>
                     <tr>
@@ -15,7 +18,7 @@
                     </tr>
                     <tr>
                         <td><label for="password">Password: </label></td>
-                        <td><input type="password" id="password" name="password"></td>
+                        <td><input [(ngModel)]="password" type="password" id="password" name="password"></td>
                     </tr>
                     <tr>
                         <td></td>
@@ -23,13 +26,13 @@
                     </tr>
                     <tr>
                         <td><label for="pin">PIN: </label></td>
-                        <td><input type="password" id="pin" name="pin"></td>
+                        <td><input [(ngModel)]="pin" type="number" id="pin" name="pin"></td>
                     </tr>
                 </table><br>
             </div>
             <div>
                 <div fxLayout="row">
-                    <div class="button" routerLink="/home" (click)="this.loginManager.setLoggedIn(true, username)">Login</div>
+                    <div class="button" (click)="login()">Login</div>
                     <div class="button" routerLink="/register">Register</div>
                 </div>
             </div>
