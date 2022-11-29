@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar-custom">
    <div fxLayout="row" fxLayoutAlign="start" *ngIf="this.loginManager.isLoggedIn()">
        <div class="navbar-item" routerLink="/home">
            Home
@@ -6,10 +6,10 @@
        <div class="navbar-item" routerLink="/stats">
            MyStats
        </div>
-       <div class="navbar-item" routerLink="/login">
+       <div class="navbar-item" (click)="logout()">
            Logout
        </div>
-       <div class="navbar-debug" (click)="deleteMyStats()">DEBUG: DELETE ALL MY STATS</div>
+       <div class="navbar-debug" (click)="openDebugDialog()">DEBUG MENU</div>
        <div style="margin-left: auto; padding: 15px;">
            <i>TrackMe @Dixon</i>
        </div>

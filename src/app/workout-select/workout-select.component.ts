@@ -32,7 +32,7 @@ export class WorkoutSelectComponent implements OnInit {
 
   exercises: Exercise[] = [];
 
-  constructor(private api: ApiService, private loginManager: LoginManagerService, private router: Router) { }
+  constructor(private api: ApiService, public loginManager: LoginManagerService, private router: Router) { }
 
   ngOnInit(): void {
   }

@@ -1,0 +1,13 @@
+<div class="modal-header">
+    <h4 class="modal-title">DEBUG MODAL</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <p>Hello, {{ name }}!</p>
+    <p>{{ statusText }}</p>
+    <button type="button" class="btn btn-danger" (click)="deleteMyStats()">DELETE ALL MY STATS</button><br><br><br>
+    <button type="button" class="btn btn-danger" (click)="deleteMyAccount()">DELETE THIS ACCOUNT</button>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Exit</button>
+</div>

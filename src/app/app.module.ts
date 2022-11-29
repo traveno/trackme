@@ -15,6 +15,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ReportComponent } from './report/report.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { DebugModalComponent } from './modals/debug-modal/debug-modal.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HomeComponent,
     StatsComponent,
     WorkoutSelectComponent,
-    ReportComponent
+    ReportComponent,
+    DebugModalComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FlexLayoutModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    NgbModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

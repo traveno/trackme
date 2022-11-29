@@ -51,7 +51,11 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/stats`, data)
   }
 
-  deleteMyStats(userGUID: string): Observable<Stat[]> {
+  deleteMyStats(userGUID: string): Observable<any> {
     return this.http.delete<Stat[]>(`${this.baseUrl}/stats?userGUID=${userGUID}`);
+  }
+
+  deleteMyAccount(userGUID: string): Observable<any> {
+    return this.http.delete<User[]>(`${this.baseUrl}/users?userGUID=${userGUID}`);
   }
 }

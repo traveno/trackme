@@ -50,7 +50,7 @@
     </div>
     <div style="margin-top: 25px;">
         <label for="weight">What is your weight after the workout?</label><br><br>
-        <input [(ngModel)]="weight" type="text" id="weight" name="weight">
+        <input [(ngModel)]="weight" class="form-control" type="text" id="weight" name="weight" placeholder="{{loginManager.user?.weight}}">
         <div class="begin-workout" (click)="completeWorkout()">I'm Done!</div> 
     </div>
 </div>
