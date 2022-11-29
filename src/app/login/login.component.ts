@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ApiService } from '../api.service';
-import { LoginManagerService } from '../login-manager.service';
+import { ApiService } from '../services/api.service';
+import { LoginManagerService } from '../services/login-manager.service';
 
 @Component({
   selector: 'app-login',
@@ -21,9 +21,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  navigateToRegister() {
-
-  }
   
   login() {
     this.api.getUserByCredentials(this.username, this.password, this.pin).subscribe(result => {

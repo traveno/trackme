@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { LoginManagerService } from './login-manager.service';
+import { LoginManagerService } from './services/login-manager.service';
 
 @Component({
   selector: 'app-root',

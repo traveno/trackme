@@ -2,8 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ApiService } from 'src/app/api.service';
-import { LoginManagerService } from 'src/app/login-manager.service';
+import { ApiService } from 'src/app/services/api.service';
+import { LoginManagerService } from 'src/app/services/login-manager.service';
 
 @Component({
   selector: 'app-debug-modal',

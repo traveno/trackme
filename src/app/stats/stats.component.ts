@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
-import { LoginManagerService } from '../login-manager.service';
+import { ApiService } from '../services/api.service';
+import { LoginManagerService } from '../services/login-manager.service';
 import { Stat } from '../models/stat.model';
 
 @Component({
