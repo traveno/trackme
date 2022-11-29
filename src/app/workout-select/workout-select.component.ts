@@ -4,7 +4,6 @@ import { ApiService } from '../api.service';
 import { LoginManagerService } from '../login-manager.service';
 import { coreDefs, lowerBodyDefs, upperBodyDefs } from './workout-definitions';
 
-
 export interface Exercise {
   name: string,
   image: string,
@@ -19,12 +18,13 @@ export interface Exercise {
 })
 export class WorkoutSelectComponent implements OnInit {
 
-  intensityNames: string[] = ['low', 'medium', 'high'];
+  intensityNames: string[] = ['Low', 'Medium', 'High'];
   durationNames: string[] = ['15 minutes', '30 minutes', '60 minutes'];
+  workoutNames: string[] = ['Upper Body', 'Lower Body', 'Core', 'Glutes', 'Arms', 'Shoulders', 'Neck'];
 
-  intensity: number = 1;
+  intensity: number = 0;
   duration: number = 1;
-  workout: 'upper' | 'lower' | 'core' = 'upper';
+  workout: number = 0;
   hasActiveWorkout: boolean = false;
 
   // For AFTER the user has completed the workout
@@ -38,11 +38,11 @@ export class WorkoutSelectComponent implements OnInit {
   }
 
   generateWorkout() {
-    if (this.workout === 'upper')
+    if (this.workout === 0)
       this.exercises = upperBodyDefs;
-    else if (this.workout === 'lower')
+    else if (this.workout === 1)
       this.exercises = lowerBodyDefs;
-    else if (this.workout === 'core')
+    else if (this.workout === 2)
       this.exercises = coreDefs;
 
     this.hasActiveWorkout = true;
@@ -51,7 +51,7 @@ export class WorkoutSelectComponent implements OnInit {
   completeWorkout() {
     this.api.createStat({
       userGUID: this.loginManager.user!._id!,
-      workout: this.capitalizeFirstLetter(this.workout),
+      workout: this.capitalizeFirstLetter(this.workoutNames[this.workout]),
       weight: this.weight ?? this.loginManager.user?.weight
     }).subscribe(result => {
       console.log(result);

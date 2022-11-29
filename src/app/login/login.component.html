@@ -11,30 +11,28 @@
                 {{ errorMessage }}
             </div>
             <div>
-                <table>
-                    <tr>
-                        <td><label for="username">Username: </label></td>
-                        <td><input [(ngModel)]="username" type="text" id="username" name="username"></td>
-                    </tr>
-                    <tr>
-                        <td><label for="password">Password: </label></td>
-                        <td><input [(ngModel)]="password" type="password" id="password" name="password"></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>OR</td>
-                    </tr>
-                    <tr>
-                        <td><label for="pin">PIN: </label></td>
-                        <td><input [(ngModel)]="pin" type="number" id="pin" name="pin"></td>
-                    </tr>
-                </table><br>
-            </div>
-            <div>
-                <div fxLayout="row">
-                    <div class="button" (click)="login()">Login</div>
-                    <div class="button" routerLink="/register">Register</div>
-                </div>
+                <form>
+                    <div class="form-group">
+                        <label for="username">Username: </label>
+                        <input [(ngModel)]="username" class="form-control" type="text" id="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password: </label>
+                        <input [(ngModel)]="password" class="form-control"type="password" id="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="pin">or PIN: </label>
+                        <input [(ngModel)]="pin" class="form-control" type="number" id="pin" name="pin">
+                    </div>
+                    <div class="row" style="padding-top: 15px;">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary form-control" (click)="login()">Login</button>
+                        </div>
+                        <div class="col">
+                            <button class="btn btn-secondary form-control" routerLink="/register">Register</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

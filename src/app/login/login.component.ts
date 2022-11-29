@@ -30,7 +30,12 @@ export class LoginComponent implements OnInit {
       this.loginManager.user = result;
       this.router.navigateByUrl('/home');
     }, error => {
-      this.errorMessage = error.error.message;
+      if (error.message.includes('Unknown Error')) {
+        this.errorMessage = 'Unknown error, check console. Is the backend service running?';
+        return;
+      }
+
+      this.errorMessage = error.error.message ?? error.message;
     })
   }
 }

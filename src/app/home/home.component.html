@@ -1,12 +1,14 @@
-<div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 50px;">
-    <div><h1>Greetings {{loginManager.user?.realname}}</h1></div>
-    <div class="big-button" routerLink="/workout">
-        Select Workout
-    </div>
-    <div class="big-button" routerLink="/stats">
-        View Previous Statistics
-    </div>
-    <div class="big-button" routerLink="/report">
-        Generate Report
+<div fxLayout="column" fxLayoutAlign="center center">
+    <div class="content">
+        <div><h1>Greetings {{loginManager.user?.realname}}</h1></div>
+        <button class="btn btn-primary btn-lg btn-block" routerLink="/workout">
+            Select Workout
+        </button>
+        <button class="btn btn-primary btn-lg btn-block" routerLink="/stats">
+            View Previous Statistics
+        </button>
+        <button class="btn btn-primary btn-lg btn-block" routerLink="/report">
+            Generate Report
+        </button>
     </div>
 </div>

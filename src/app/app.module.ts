@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReportComponent } from './report/report.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { DebugModalComponent } from './modals/debug-modal/debug-modal.component';
 
 @NgModule({
@@ -37,7 +38,8 @@ import { DebugModalComponent } from './modals/debug-modal/debug-modal.component'
     FormsModule,
     HttpClientModule,
     NgbModule,
-    NgbModalModule
+    NgbModalModule,
+    NgbDropdownModule
   ],
   providers: [],
   bootstrap: [AppComponent]

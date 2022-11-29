@@ -7,14 +7,14 @@
             <thead>
                 <tr>
                     <th>Date</th>
-                    <th>Exercise Name</th>
+                    <th>Exercise Focus</th>
                     <th>Recorded Body Weight</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let stat of stats">
                     <td>{{ toPrettyDate(stat.createdAt!) }}</td>
-                    <td>{{ stat.workout }}</td>
+                    <td>{{ stat.workout }} Workout</td>
                     <td>{{ stat.weight }}</td>
                 </tr>
             </tbody>

@@ -1,14 +1,20 @@
+.content {
+    margin-top: 50px;
+    width: 100%;
+}
+
 .intensity-button {
     padding: 15px;
-    background-color: orange;
+    background-color: white;
     margin-top: 15px;
     border-radius: 5px;
     border: thin dotted orange;
     cursor: pointer;
+    width: 300px;
 }
 
 .selected {
-    background-color: #f7e2bc;
+    background-color: #ffc760;
     border: thin dotted orange;
 }
 

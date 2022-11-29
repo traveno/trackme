@@ -1,5 +1,6 @@
 .navbar-custom {
     background-color: orange;
+    color: white;
 }
 
 .navbar-item {
@@ -11,6 +12,7 @@
 
 .navbar-item:hover {
     background-color: white;
+    color: black;
 }
 
 .navbar-debug {

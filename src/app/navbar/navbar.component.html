@@ -1,17 +1,23 @@
 <div class="navbar-custom">
-   <div fxLayout="row" fxLayoutAlign="start" *ngIf="this.loginManager.isLoggedIn()">
-       <div class="navbar-item" routerLink="/home">
-           Home
-       </div>
-       <div class="navbar-item" routerLink="/stats">
-           MyStats
-       </div>
-       <div class="navbar-item" (click)="logout()">
-           Logout
-       </div>
-       <div class="navbar-debug" (click)="openDebugDialog()">DEBUG MENU</div>
-       <div style="margin-left: auto; padding: 15px;">
-           <i>TrackMe @Dixon</i>
-       </div>
+   <div fxLayout="row" fxLayoutAlign="start">
+        <div class="navbar-item" routerLink="/home"
+        *ngIf="this.loginManager.isLoggedIn()">
+            Home
+        </div>
+        <div class="navbar-item" routerLink="/stats"
+        *ngIf="this.loginManager.isLoggedIn()">
+            MyStats
+        </div>
+        <div class="navbar-item" (click)="logout()"
+        *ngIf="this.loginManager.isLoggedIn()">
+            Logout
+        </div>
+        <div class="navbar-debug" (click)="openDebugDialog()"
+        *ngIf="this.loginManager.isLoggedIn()">
+            DEBUG MENU
+        </div>
+        <div style="margin-left: auto; padding: 15px;">
+            <i>TrackMe @Dixon</i>
+        </div>
    </div>
 </div>

@@ -1,32 +1,33 @@
-<div fxLayout="column" fxLayoutAlign="center center" *ngIf="!hasActiveWorkout">
-    <div fxLayout="row" fxLayoutAlign="space-evenly start">
-        <div fxLayout="column">
-            <h1>Type</h1>
-            <div class="intensity-button" (click)="workout = 'upper'" [class.selected]="workout === 'upper'">Upper Body</div>
-            <div class="intensity-button" (click)="workout = 'lower'" [class.selected]="workout === 'lower'">Lower Body</div>
-            <div class="intensity-button" (click)="workout = 'core'" [class.selected]="workout === 'core'">Core</div>
+<div fxLayout="column" fxLayoutAlign="center center" *ngIf="!hasActiveWorkout" class="content">
+    <div fxLayout="column">
+        <h1>Choose Focus</h1>
+        <div *ngFor="let w of workoutNames">
+            <div class="intensity-button" (click)="workout = workoutNames.indexOf(w)" [class.selected]="workout === workoutNames.indexOf(w)">{{w}}</div>
         </div>
-        <div fxLayout="column" style="margin-left: 30px;">
-            <h1>Intensity</h1>
-            <div class="intensity-button" (click)="intensity = 2" [class.selected]="intensity == 2">High</div>
-            <div class="intensity-button" (click)="intensity = 1" [class.selected]="intensity == 1">Medium</div>
-            <div class="intensity-button" (click)="intensity = 0" [class.selected]="intensity == 0">Low</div>
-        </div>
-        <div fxLayout="column" style="margin-left: 30px;">
-            <h1>Duration</h1>
-            <div class="intensity-button" (click)="duration = 2" [class.selected]="duration == 2">Long (60 mins)</div>
-            <div class="intensity-button" (click)="duration = 1" [class.selected]="duration == 1">Medium (30 mins)</div>
-            <div class="intensity-button" (click)="duration = 0" [class.selected]="duration == 0">Short (15 mins)</div>
-        </div>
+        
+        <!-- <div class="intensity-button" (click)="workout = 'lower'" [class.selected]="workout === 'lower'">Lower Body</div>
+        <div class="intensity-button" (click)="workout = 'core'" [class.selected]="workout === 'core'">Core</div> -->
     </div>
-    <div>
-        <div class="begin-workout" (click)="generateWorkout()">Begin Workout</div>
+    <div fxLayout="column" style="margin-top: 30px;">
+        <h1>Choose Intensity</h1>
+        <div *ngFor="let i of intensityNames">
+            <div class="intensity-button" (click)="intensity = intensityNames.indexOf(i)" [class.selected]="intensity === intensityNames.indexOf(i)">{{i}}</div>
+        </div> 
+    </div>
+    <div fxLayout="column" style="margin-top: 30px;">
+        <h1>Choose Duration</h1>
+        <div *ngFor="let d of durationNames">
+            <div class="intensity-button" (click)="duration = durationNames.indexOf(d)" [class.selected]="duration === durationNames.indexOf(d)">{{d}}</div>
+        </div> 
+    </div>
+    <div style="margin-top: 30px; margin-bottom: 100px;">
+        <button class="btn btn-success btn-lg" style="width: 300px;" (click)="generateWorkout()">Begin Workout</button>
     </div>
 </div>
 <div fxLayout="column" fxLayoutAlign="center center" *ngIf="hasActiveWorkout">
-    <div fxLayout="row" fxLayoutAlign="space-evenly start">
+    <div fxLayout="row" fxLayoutAlign="space-evenly start" class="content">
         <div fxLayout="column">
-            <div style="margin-top: 25px;">You selected a {{intensityNames[intensity]}} intensity workout, for a duration of {{durationNames[duration]}}.</div>
+            <div style="margin-top: 25px;">You selected a {{intensityNames[intensity].toLowerCase()}} intensity {{workoutNames[workout].toLowerCase()}} workout, for a duration of {{durationNames[duration]}}.</div>
             <div style="margin-top: 25px;">Let's make some gains.</div>
             <table style="margin-top: 25px;">
                 <thead>
@@ -49,8 +50,8 @@
         </div>
     </div>
     <div style="margin-top: 25px;">
-        <label for="weight">What is your weight after the workout?</label><br><br>
+        <label for="weight">What is your measured weight post workout?</label><br><br>
         <input [(ngModel)]="weight" class="form-control" type="text" id="weight" name="weight" placeholder="{{loginManager.user?.weight}}">
-        <div class="begin-workout" (click)="completeWorkout()">I'm Done!</div> 
+        <button class="btn btn-success btn-lg" style="width: 300px; margin-top: 30px;" (click)="completeWorkout()">I'm Done!</button> 
     </div>
 </div>
