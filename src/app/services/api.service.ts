@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user.model';
 import { Stat } from '../models/stat.model';
+import { LoginManagerService } from './login-manager.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class ApiService {
 
   baseUrl = 'http://localhost:8080/api';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private loginManager: LoginManagerService) {}
 
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users`);
@@ -35,8 +36,8 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/users`, data);
   }
 
-  getAllStats(userGUID: string): Observable<Stat[]> {
-    return this.http.get<Stat[]>(`${this.baseUrl}/stats?userGUID=${userGUID}`); 
+  getAllStats(): Observable<Stat[]> {
+    return this.http.get<Stat[]>(`${this.baseUrl}/stats?userGUID=${this.loginManager.user?._id}`); 
   }
 
   createStat(data: Stat): Observable<any> {
@@ -51,11 +52,11 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/stats`, data)
   }
 
-  deleteMyStats(userGUID: string): Observable<any> {
-    return this.http.delete<Stat[]>(`${this.baseUrl}/stats?userGUID=${userGUID}`);
+  deleteMyStats(): Observable<any> {
+    return this.http.delete<Stat[]>(`${this.baseUrl}/stats?userGUID=${this.loginManager.user?._id}`);
   }
 
-  deleteMyAccount(userGUID: string): Observable<any> {
-    return this.http.delete<User[]>(`${this.baseUrl}/users?userGUID=${userGUID}`);
+  deleteMyAccount(): Observable<any> {
+    return this.http.delete<User[]>(`${this.baseUrl}/users?userGUID=${this.loginManager.user?._id}`);
   }
 }

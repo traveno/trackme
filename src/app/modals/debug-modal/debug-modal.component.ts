@@ -22,14 +22,14 @@ export class DebugModalComponent implements OnInit {
   }
 
   deleteMyStats() {
-    this.api.deleteMyStats(this.loginManager.user?._id!).subscribe(results => {
+    this.api.deleteMyStats().subscribe(results => {
       console.log('Deleted', results);
       this.statusText = `Deleted ${results.deletedCount} entries from DB`;
     });
   }
 
   deleteMyAccount() {
-    this.api.deleteMyAccount(this.loginManager.user?._id!).subscribe(results => {
+    this.api.deleteMyAccount().subscribe(results => {
       console.log('Deleted', results);
       this.loginManager.user = undefined;
       this.router.navigateByUrl('/login');

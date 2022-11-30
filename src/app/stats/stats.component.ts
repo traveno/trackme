@@ -12,11 +12,11 @@ export class StatsComponent implements OnInit {
 
   stats: Stat[] = [];
 
-  constructor(private loginManager: LoginManagerService, private api: ApiService) { }
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
     // Get user stats from db
-    this.api.getAllStats(this.loginManager.user?._id!).subscribe(results => {
+    this.api.getAllStats().subscribe(results => {
       this.stats = results;
       console.log(results);
     });
