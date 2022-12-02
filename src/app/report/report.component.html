@@ -1,5 +1,21 @@
-<div fxLayout="column" fxLayoutAlign="center center">
-    <img src="assets/linechart.png" class="bogus-chart">
+<div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 50px;">
+    <ngx-charts-line-chart
+        [view]="view"
+        [legend]="legend"
+        [showXAxisLabel]="showXAxisLabel"
+        [showYAxisLabel]="showYAxisLabel"
+        [xAxis]="xAxis"
+        [yAxis]="yAxis"
+        [xAxisLabel]="xAxisLabel"
+        [yAxisLabel]="yAxisLabel"
+        [timeline]="timeline"
+        [results]="multi"
+        *ngIf="userDataValid"
+        >
+    </ngx-charts-line-chart>
+    <div *ngIf="!userDataValid">
+        Sorry, you need data that is at least 3 months old to generate a report.
+    </div>
     <div>
         Keep up the good work {{loginManager.user?.realname}}!
     </div>

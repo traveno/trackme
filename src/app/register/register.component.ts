@@ -25,24 +25,15 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.api.createUser({
+    this.loginManager.attemptRegister({
       username: this.username,
       password: this.password,
       pin: this.pin,
       realname: this.realname,
       height: this.height,
       weight: this.weight
-    }).subscribe(result => {
-      this.loginManager.user = result;
-      this.router.navigateByUrl('/home');
-    }, error => {
-      if (error.message.includes('Unknown Error')) {
-        this.errorMessage = 'Unknown error, check console. Is the backend service running?';
-        return;
-      }
-      
-      this.errorMessage = error.error.message;
     });
+    
   }
 
 }

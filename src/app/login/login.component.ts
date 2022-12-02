@@ -23,16 +23,16 @@ export class LoginComponent implements OnInit {
 
   
   login() {
-    this.api.getUserByCredentials(this.username, this.password, this.pin).subscribe(result => {
-      this.loginManager.user = result;
-      this.router.navigateByUrl('/home');
-    }, error => {
-      if (error.message.includes('Unknown Error')) {
-        this.errorMessage = 'Unknown error, check console. Is the backend service running?';
-        return;
-      }
+    if (this.loginManager.isLoggedIn()) {
+      console.error('Attempted to log in when we are already logged in...');
+      return;
+    }
 
-      this.errorMessage = error.error.message ?? error.message;
-    })
+    this.loginManager.attemptLogin({
+      username: this.username,
+      password: this.password,
+      pin: this.pin
+    });
+   
   }
 }

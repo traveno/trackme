@@ -12,7 +12,7 @@ export class ApiService {
 
   baseUrl = 'http://localhost:8080/api';
 
-  constructor(private http: HttpClient, private loginManager: LoginManagerService) {}
+  constructor(private http: HttpClient) {}
 
   getAllUsers(): Observable<User[]> {
     return this.http.get<User[]>(`${this.baseUrl}/users`);
@@ -36,8 +36,8 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/users`, data);
   }
 
-  getAllStats(): Observable<Stat[]> {
-    return this.http.get<Stat[]>(`${this.baseUrl}/stats?userGUID=${this.loginManager.user?._id}`); 
+  getAllStatsByUserGUID(userGUID: string): Observable<Stat[]> {
+    return this.http.get<Stat[]>(`${this.baseUrl}/stats?userGUID=${userGUID}`); 
   }
 
   createStat(data: Stat): Observable<any> {
@@ -52,11 +52,11 @@ export class ApiService {
     return this.http.post(`${this.baseUrl}/stats`, data)
   }
 
-  deleteMyStats(): Observable<any> {
-    return this.http.delete<Stat[]>(`${this.baseUrl}/stats?userGUID=${this.loginManager.user?._id}`);
+  deleteAllStats(userGUID: string): Observable<any> {
+    return this.http.delete<Stat[]>(`${this.baseUrl}/stats?userGUID=${userGUID}`);
   }
 
-  deleteMyAccount(): Observable<any> {
-    return this.http.delete<User[]>(`${this.baseUrl}/users?userGUID=${this.loginManager.user?._id}`);
+  deleteMyAccount(userGUID: string): Observable<any> {
+    return this.http.delete<User[]>(`${this.baseUrl}/users?userGUID=${userGUID}`);
   }
 }

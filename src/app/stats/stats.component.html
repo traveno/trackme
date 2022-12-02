@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let stat of stats">
+                <tr *ngFor="let stat of this.statsManager.getUserStats()">
                     <td>{{ toPrettyDate(stat.createdAt!) }}</td>
                     <td>{{ stat.workout }} Workout</td>
                     <td>{{ stat.weight }}</td>

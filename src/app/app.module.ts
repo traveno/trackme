@@ -18,6 +18,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { DebugModalComponent } from './modals/debug-modal/debug-modal.component';
+import { TimerComponent } from './workout-select/timer/timer.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { DebugModalComponent } from './modals/debug-modal/debug-modal.component'
     StatsComponent,
     WorkoutSelectComponent,
     ReportComponent,
-    DebugModalComponent
+    DebugModalComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { DebugModalComponent } from './modals/debug-modal/debug-modal.component'
     HttpClientModule,
     NgbModule,
     NgbModalModule,
-    NgbDropdownModule
+    NgbDropdownModule,
+    NgxChartsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

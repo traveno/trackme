@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
-import { LoginManagerService } from '../services/login-manager.service';
 import { Stat } from '../models/stat.model';
+import { StatsManagerService } from '../services/stats-manager.service';
 
 @Component({
   selector: 'app-stats',
@@ -12,14 +12,12 @@ export class StatsComponent implements OnInit {
 
   stats: Stat[] = [];
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService, public statsManager: StatsManagerService) { }
 
   ngOnInit(): void {
-    // Get user stats from db
-    this.api.getAllStats().subscribe(results => {
-      this.stats = results;
-      console.log(results);
-    });
+    // Fetch user stats attached to this account and pull
+    // results into this component
+    this.statsManager.refreshUserStats();
   }
 
   toPrettyDate(dateString: Date) {

@@ -29,6 +29,7 @@
         <div fxLayout="column">
             <div style="margin-top: 25px;">You selected a {{intensityNames[intensity].toLowerCase()}} intensity {{workoutNames[workout].toLowerCase()}} workout, for a duration of {{durationNames[duration]}}.</div>
             <div style="margin-top: 25px;">Let's make some gains.</div>
+            <app-timer [exercises]="exercises" [totalWorkoutTime]="totalWorkoutTime"></app-timer>
             <table style="margin-top: 25px;">
                 <thead>
                     <tr>
@@ -50,8 +51,10 @@
         </div>
     </div>
     <div style="margin-top: 25px;">
-        <label for="weight">What is your measured weight post workout?</label><br><br>
-        <input [(ngModel)]="weight" class="form-control" type="text" id="weight" name="weight" placeholder="{{loginManager.user?.weight}}">
-        <button class="btn btn-success btn-lg" style="width: 300px; margin-top: 30px;" (click)="completeWorkout()">I'm Done!</button> 
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <div><label for="weight">What is your measured weight post workout?</label></div><br>
+            <div><input [(ngModel)]="weight" class="form-control" type="text" id="weight" name="weight" placeholder="{{loginManager.user?.weight}}"></div>
+            <div><button class="btn btn-success btn-lg" style="width: 200px; margin-top: 30px;" (click)="completeWorkout()">I'm Done!</button> </div>
+        </div>
     </div>
 </div>

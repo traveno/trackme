@@ -27,6 +27,8 @@ export class WorkoutSelectComponent implements OnInit {
   workout: number = 0;
   hasActiveWorkout: boolean = false;
 
+  totalWorkoutTime: number = 600; // default 10 minutes
+
   // For AFTER the user has completed the workout
   weight!: number;
 
@@ -44,6 +46,13 @@ export class WorkoutSelectComponent implements OnInit {
       this.exercises = lowerBodyDefs;
     else if (this.workout === 2)
       this.exercises = coreDefs;
+
+    if (this.duration === 0)
+      this.totalWorkoutTime = 15 * 60;
+    else if (this.duration === 1)
+      this.totalWorkoutTime = 30 * 60;
+    else if (this.duration === 2)
+      this.totalWorkoutTime = 60 * 60;
 
     this.hasActiveWorkout = true;
   }

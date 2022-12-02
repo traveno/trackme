@@ -1,0 +1,8 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="content">
+    <div>Current Exercise</div>
+    <div style="font-size: 32pt;">{{exercises[currentExercise].name}}</div>
+    <img [src]="'assets/exercises/' + exercises[currentExercise].image" style="max-width: 200px; max-height: 200px;">
+    <div>Time Remaining</div>
+    <div style="font-size: 32pt;">{{toPrettyTime(currentExerciseTimeRemaining)}}</div>
+    <button class="btn btn-warning btn-lg" style="color: white;" (click)="skipCurrentWorkout()">Skip This Workout</button>
+</div>

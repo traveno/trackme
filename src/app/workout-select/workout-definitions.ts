@@ -3,37 +3,37 @@ import { Exercise } from "./workout-select.component";
 export var upperBodyDefs: Exercise[] = [
     {
         name: 'Bench Press',
-        image: 'bench.png',
+        image: 'bench_press.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Tricep Extension',
-        image: 'tricep_ext.png',
+        image: 'tricep_ext.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Delt Press',
-        image: 'delt_press.png',
+        image: 'delt_press.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Lat Pulldowns',
-        image: 'lat_pulldown.png',
+        image: 'lat_pulldown.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Lawnmowers',
-        image: 'lawnmowers.png',
+        image: 'lawnmower.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Shrugs',
-        image: 'shrugs.png',
+        image: 'shrugs.jpeg',
         sets: 3,
         reps: 8
     }
@@ -42,25 +42,25 @@ export var upperBodyDefs: Exercise[] = [
 export var lowerBodyDefs: Exercise[] = [
     {
         name: 'Leg Press',
-        image: 'leg_press.png',
+        image: 'leg_press.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Hip Thrust',
-        image: 'hip_thrust.png',
+        image: 'hip_thrust.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Hamstring Curl',
-        image: 'hamstring_curl.png',
+        image: 'hamstring_curl.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Leg Extension',
-        image: 'leg_extension.png',
+        image: 'leg_extension.jpeg',
         sets: 3,
         reps: 8
     }
@@ -69,25 +69,25 @@ export var lowerBodyDefs: Exercise[] = [
 export var coreDefs: Exercise[] = [
     {
         name: 'Crunch',
-        image: 'crunch.png',
+        image: 'crunch.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Leg Raises',
-        image: 'leg_raises.png',
+        image: 'leg_raise.jpeg',
         sets: 3,
         reps: 8
     },
     {
         name: 'Plank',
-        image: 'plank.png',
+        image: 'plank.jpeg',
         sets: 1,
         reps: 1
     },
     {
         name: 'Flutterkicks',
-        image: 'flutterkicks.png',
+        image: 'flutterkicks.jpeg',
         sets: 3,
         reps: 8
     }
