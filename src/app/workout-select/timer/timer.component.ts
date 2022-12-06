@@ -19,6 +19,7 @@ export class TimerComponent implements OnInit {
 
   currentExercise: number = 0; // position in array
   currentExerciseTimeRemaining: number = 0;
+  currentExerciseTimeElapsed: number = 0;
 
   constructor() { }
 
@@ -33,6 +34,7 @@ export class TimerComponent implements OnInit {
 
   updateTimer() {
     this.currentExerciseTimeRemaining--;
+    this.currentExerciseTimeElapsed++;
 
     // Check if we've completed all workouts
     if (this.currentExercise === this.exercises.length - 1 &&
@@ -50,9 +52,9 @@ export class TimerComponent implements OnInit {
 
   toPrettyTime(time: number) {
     if (time % 60 >= 10)
-      return `${parseInt(`${time / 60}`)}:${time % 60}`;
+      return `${parseInt(`${time / 60}`)}:${Math.floor(time % 60)}`;
     else
-      return `${parseInt(`${time / 60}`)}:0${time % 60}`; 
+      return `${parseInt(`${time / 60}`)}:0${Math.floor(time % 60)}`; 
   }
 
   skipCurrentWorkout() {

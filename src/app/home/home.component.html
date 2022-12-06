@@ -1,8 +1,31 @@
 <div fxLayout="column" fxLayoutAlign="center center">
     <div class="content">
-        <div><h1>Greetings {{loginManager.user?.realname}}</h1></div>
+        <div><h1>Hello {{loginManager.user?.realname}}!</h1></div>
+        <hr>
+        <div>
+            <h3>Completed exercises for last 7 days</h3>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Exercise Focus</th>
+                        <th>Recorded Body Weight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let stat of stats">
+                        <td>{{ toPrettyDate(stat.createdAt!) }}</td>
+                        <td>{{ stat.workout }} Workout</td>
+                        <td>{{ stat.weight }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <hr>
         <button class="btn btn-primary btn-lg btn-block" routerLink="/workout">
-            Select Workout
+            Start a Workout
         </button>
         <button class="btn btn-primary btn-lg btn-block" routerLink="/stats">
             View Previous Statistics

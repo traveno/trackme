@@ -55,6 +55,7 @@ export class DebugModalComponent implements OnInit {
       this.statsManager.createUserStat({
         createdAt: insertionDate,
         userGUID: this.loginManager.user?._id!,
+        reps: 12 + Math.floor(i * 0.5 + Math.floor(Math.random() * 3)),
         workout: this.workoutNames[Math.floor(Math.random() * this.workoutNames.length)],
         weight: Number(beginWeight.toFixed(2))
       });

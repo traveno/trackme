@@ -1,23 +1,25 @@
 <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 50px;">
-    <div>
-        <h2>Completed exercises for last 7 days</h2>
-    </div>
-    <div>
-        <table>
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Exercise Focus</th>
-                    <th>Recorded Body Weight</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let stat of this.statsManager.getUserStats()">
-                    <td>{{ toPrettyDate(stat.createdAt!) }}</td>
-                    <td>{{ stat.workout }} Workout</td>
-                    <td>{{ stat.weight }}</td>
-                </tr>
-            </tbody>
-        </table>
+    
+    <div fxLayout="column" fxLayoutAlign="center center" style="margin-top: 50px;">
+        <div *ngFor="let m of multi">
+            <h1>{{m[0].name}}</h1>
+            <ngx-charts-line-chart
+                [view]="view"
+                [legend]="legend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxis]="xAxis"
+                [yAxis]="yAxis"
+                [xAxisLabel]="'Date'"
+                [yAxisLabel]="'Total Reps'"
+                [timeline]="timeline"
+                [results]="m"
+                *ngIf="userDataValid"
+                >
+            </ngx-charts-line-chart>
+        </div>
+        <div *ngIf="!userDataValid">
+            Sorry, you need more than one completed workout to view your statistics.
+        </div>
     </div>
 </div>

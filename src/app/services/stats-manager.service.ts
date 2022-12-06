@@ -26,6 +26,7 @@ export class StatsManagerService {
       createdAt: data.createdAt,
       userGUID: this.loginManager.user?._id!,
       workout: data.workout,
+      reps: data.reps,
       weight: data.weight,
     }).subscribe(result => {
       console.log(result);

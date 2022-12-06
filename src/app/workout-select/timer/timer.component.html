@@ -1,8 +1,12 @@
-<div fxLayout="column" fxLayoutAlign="center center" class="content">
-    <div>Current Exercise</div>
+<div fxLayout="column" fxLayoutAlign="center center">
+    <h3 style="border-bottom: thin solid gray;">Current Exercise</h3>
     <div style="font-size: 32pt;">{{exercises[currentExercise].name}}</div>
-    <img [src]="'assets/exercises/' + exercises[currentExercise].image" style="max-width: 200px; max-height: 200px;">
-    <div>Time Remaining</div>
+    <img [src]="'assets/exercises/' + exercises[currentExercise].image" style="max-width: 300px; max-height: 300px;">
+    <h3 style="padding-top: 10px;">{{exercises[currentExercise].sets}} sets of {{exercises[currentExercise].reps}} reps</h3>
+    <div style="padding-top: 10px;">Time Remaining for Current Exercise</div>
     <div style="font-size: 32pt;">{{toPrettyTime(currentExerciseTimeRemaining)}}</div>
-    <button class="btn btn-warning btn-lg" style="color: white;" (click)="skipCurrentWorkout()">Skip This Workout</button>
+    <button class="btn btn-warning btn-lg" style="color: white;" (click)="skipCurrentWorkout()">Skip this Exercise</button>
+    <hr>
+    <div>Total Workout Time Elapsed</div>
+    <div style="font-size: 32pt;">{{toPrettyTime(currentExerciseTimeElapsed)}}</div>
 </div>

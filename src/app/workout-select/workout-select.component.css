@@ -8,14 +8,14 @@
     background-color: white;
     margin-top: 15px;
     border-radius: 5px;
-    border: thin dotted orange;
+    border: thin dashed gray;
     cursor: pointer;
     width: 300px;
 }
 
 .selected {
     background-color: #ffc760;
-    border: thin dotted orange;
+    border: thin dashed orange;
 }
 
 .begin-workout {
@@ -48,4 +48,10 @@ table th {
 
 table tr:hover {
     background-color: #ddd;
+}
+
+.window {
+    border: thin solid gray;
+    padding: 25px;
+    border-radius: 10px;
 }

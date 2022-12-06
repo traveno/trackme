@@ -1,59 +1,113 @@
-<div fxLayout="column" fxLayoutAlign="center center" *ngIf="!hasActiveWorkout" class="content">
-    <div fxLayout="column">
-        <h1>Choose Focus</h1>
-        <div *ngFor="let w of workoutNames">
-            <div class="intensity-button" (click)="workout = workoutNames.indexOf(w)" [class.selected]="workout === workoutNames.indexOf(w)">{{w}}</div>
-        </div>
-        
-        <!-- <div class="intensity-button" (click)="workout = 'lower'" [class.selected]="workout === 'lower'">Lower Body</div>
-        <div class="intensity-button" (click)="workout = 'core'" [class.selected]="workout === 'core'">Core</div> -->
-    </div>
-    <div fxLayout="column" style="margin-top: 30px;">
-        <h1>Choose Intensity</h1>
-        <div *ngFor="let i of intensityNames">
-            <div class="intensity-button" (click)="intensity = intensityNames.indexOf(i)" [class.selected]="intensity === intensityNames.indexOf(i)">{{i}}</div>
-        </div> 
-    </div>
-    <div fxLayout="column" style="margin-top: 30px;">
-        <h1>Choose Duration</h1>
-        <div *ngFor="let d of durationNames">
-            <div class="intensity-button" (click)="duration = durationNames.indexOf(d)" [class.selected]="duration === durationNames.indexOf(d)">{{d}}</div>
-        </div> 
-    </div>
-    <div style="margin-top: 30px; margin-bottom: 100px;">
-        <button class="btn btn-success btn-lg" style="width: 300px;" (click)="generateWorkout()">Begin Workout</button>
-    </div>
-</div>
-<div fxLayout="column" fxLayoutAlign="center center" *ngIf="hasActiveWorkout">
-    <div fxLayout="row" fxLayoutAlign="space-evenly start" class="content">
+<div fxLayout="row" fxLayoutAlign="center start" *ngIf="!hasActiveWorkout" class="content">
+    <div class="window" fxLayout="row">
         <div fxLayout="column">
-            <div style="margin-top: 25px;">You selected a {{intensityNames[intensity].toLowerCase()}} intensity {{workoutNames[workout].toLowerCase()}} workout, for a duration of {{durationNames[duration]}}.</div>
-            <div style="margin-top: 25px;">Let's make some gains.</div>
-            <app-timer [exercises]="exercises" [totalWorkoutTime]="totalWorkoutTime"></app-timer>
-            <table style="margin-top: 25px;">
+            <div class="form-group">
+                <label for="search">Search by muscle group or description</label>
+                <input type="text" [(ngModel)]="searchText" name="search" class="form-control" (change)="searchChange()">
+            </div>
+            <hr>
+            <h1>Choose Focus</h1>
+            <div fxLayout="row">
+                <div fxLayout="column">
+        
+                    <div *ngIf="!searchActive">
+                        <div *ngFor="let w of workoutNames">
+                            <div class="intensity-button" (click)="workout = workoutNames.indexOf(w)" [class.selected]="workout === workoutNames.indexOf(w)">{{w}}</div>
+                        </div>
+                    </div>
+                    <div *ngIf="searchActive">
+                        <div *ngFor="let w of workoutNames">
+                            <div class="intensity-button" (click)="workout = workoutNames.indexOf(w)" [class.selected]="workout === workoutNames.indexOf(w)"
+                                 *ngIf="searchResults.includes(workoutNames.indexOf(w))">{{w}}</div>
+                        </div>
+                    </div>
+                </div>
+                <div fxLayout="column" style="margin-left: 25px; padding-left: 25px; border-left: thin solid lightgray; max-width: 300px;">
+                    <h2>Description</h2>
+                    <div>
+                        {{workoutDesc[workout]}}
+                    </div>
+                </div>
+            </div>
+        
+            <!-- <div class="intensity-button" (click)="workout = 'lower'" [class.selected]="workout === 'lower'">Lower Body</div>
+            <div class="intensity-button" (click)="workout = 'core'" [class.selected]="workout === 'core'">Core</div> -->
+        </div>
+        <div fxLayout="column" fxLayoutAlign="center center" style="margin-left: 25px; padding-left: 25px; border-left: thin solid lightgray;">
+            <div>
+                <h1>Choose Intensity</h1>
+                <div *ngFor="let i of intensityNames">
+                    <div class="intensity-button" (click)="intensity = intensityNames.indexOf(i)" [class.selected]="intensity === intensityNames.indexOf(i)">{{i}}</div>
+                </div>
+            </div>
+            <div style="margin-top: 30px;">
+                <h1>Choose Duration</h1>
+                <div *ngFor="let d of durationNames">
+                    <div class="intensity-button" (click)="duration = durationNames.indexOf(d)" [class.selected]="duration === durationNames.indexOf(d)">{{d}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div fxLayout="column" style="margin-left: 25px;">
+        <div class="window">
+            <button class="btn btn-primary btn-lg" style="width: 300px;" (click)="appendWorkout()">Add to MyWorkout Plan</button>
+            <hr>
+            <h3>MyWorkout Plan</h3>
+            <table *ngIf="workoutPlan.length > 0">
                 <thead>
                     <tr>
-                        <th>Workout #</th>
-                        <th>Name</th>
-                        <th>Sets</th>
-                        <th>Reps</th>
+                        <th>Regiment</th>
+                        <th>Intensity</th>
+                        <th>Duration</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let exercise of exercises">
-                        <td>{{exercises.indexOf(exercise) + 1}}</td>
-                        <td>{{exercise.name}}</td>
-                        <td>{{exercise.sets + intensity}} sets</td>
-                        <td>{{exercise.reps + duration}} reps</td>
+                    <tr *ngFor="let workout of workoutPlan">
+                        <td>{{ workout.name }}</td>
+                        <td>{{ intensityNames[workout.intensity] }}</td>
+                        <td>{{ durationNames[workout.duration] }}</td>
                     </tr>
                 </tbody>
             </table>
+            <div *ngIf="workoutPlan.length === 0">
+                Your workout plan is empty. Add something!
+            </div>
+        </div>
+        <div style="margin-top: 30px" class="window">
+            <button class="btn btn-success btn-lg" style="width: 300px;" (click)="beginWorkout()" [disabled]="workoutPlan.length === 0">Begin Workout</button>
         </div>
     </div>
-    <div style="margin-top: 25px;">
+</div>
+<div fxLayout="row" fxLayoutAlign="center start" class="content" *ngIf="hasActiveWorkout" style="margin-bottom: 100px;">
+    <div fxLayout="column" class="window">
+        <app-timer [exercises]="getAllExercises()" [totalWorkoutTime]="totalWorkoutTime"></app-timer>
+        
+    </div>
+    <div class="window" style="margin-left: 25px;">
+        <h3>MyWorkout at a Glance</h3>
+        <table style="margin-top: 25px;">
+            <thead>
+                <tr>
+                    <th>Workout #</th>
+                    <th>Name</th>
+                    <th>Sets</th>
+                    <th>Reps</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let exercise of getAllExercises(); let i = index">
+                    <td>{{i + 1}}</td>
+                    <td>{{exercise.name}}</td>
+                    <td>{{exercise.sets + intensity}} sets</td>
+                    <td>{{exercise.reps + duration}} reps</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="window" style="margin-left: 25px;">
         <div fxLayout="column" fxLayoutAlign="center center">
-            <div><label for="weight">What is your measured weight post workout?</label></div><br>
-            <div><input [(ngModel)]="weight" class="form-control" type="text" id="weight" name="weight" placeholder="{{loginManager.user?.weight}}"></div>
+            <div><label for="weight">What is your weight post workout? (OPTIONAL)</label></div>
+            <div><input [(ngModel)]="weight" class="form-control" type="text" id="weight" name="weight" style="margin-top: 10px;" placeholder="{{loginManager.user?.weight}}"></div>
             <div><button class="btn btn-success btn-lg" style="width: 200px; margin-top: 30px;" (click)="completeWorkout()">I'm Done!</button> </div>
         </div>
     </div>
