@@ -46,6 +46,14 @@ export class WorkoutSelectComponent implements OnInit {
       this.exercises = lowerBodyDefs;
     else if (this.workout === 2)
       this.exercises = coreDefs;
+    else if (this.workout === 3)
+      this.exercises = lowerBodyDefs;
+    else if (this.workout === 4)
+      this.exercises = upperBodyDefs;
+    else if (this.workout === 5)
+      this.exercises = upperBodyDefs;
+    else if (this.workout === 6)
+      this.exercises = upperBodyDefs;
 
     if (this.duration === 0)
       this.totalWorkoutTime = 15 * 60;
