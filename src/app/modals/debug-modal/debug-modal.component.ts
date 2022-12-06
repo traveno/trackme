@@ -40,16 +40,23 @@ export class DebugModalComponent implements OnInit {
   generateFakeStats() {
     // Find date from 90 days ago
     let beginDate = new Date(Date.now() - 120 * 24 * 60 * 60 * 1000);
+    let beginWeight = this.loginManager.user?.weight!;
 
     for (let i = 0; i < 120; i++) {
       let insertionDate = new Date(beginDate.getTime() + i * 24 * 60 * 60 * 1000);
       console.log(insertionDate);
 
+      if (Math.random() > 0.75) {
+        beginWeight += Math.random() * 0.1;
+      } else {
+        beginWeight -= Math.random() * 0.25;
+      }
+
       this.statsManager.createUserStat({
         createdAt: insertionDate,
         userGUID: this.loginManager.user?._id!,
         workout: this.workoutNames[Math.floor(Math.random() * this.workoutNames.length)],
-        weight: 190 - i * 0.05
+        weight: Number(beginWeight.toFixed(2))
       });
     }
 
