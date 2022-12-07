@@ -30,13 +30,25 @@ export class WorkoutSelectComponent implements OnInit {
   durationNames: string[] = ['15 minutes', '30 minutes', '60 minutes'];
   workoutNames: string[] = ['Upper Body', 'Lower Body', 'Core', 'Glutes', 'Arms', 'Shoulders', 'Neck'];
   workoutDesc: string[] = [
-    'The upper body workout targets the delts, biceps, triceps, shoulders, neck and back.',
-    'The lower body workout targets the calves, hamstrings, quads, and glutes.',
-    'The core workout specifically targets the abdomen, or the abs.',
-    'The glutes workout specifically targets the gluteus maximus muscles.',
-    'The arms workout specifically targets the biceps, triceps and forearms.',
-    'The shoulders workout specifically targets the shoulder muscles, primarily using the shrugs exercise.',
-    'The neck workout specifically targets the muscles within the neck.'
+    'The upper body workout targets all the muscles from the waist up. This includes the back, arms, forearms, chest and shoulders. Rated medium intensity.',
+    'The lower body workout targets all muscles from the waist below. This includes the buttocks, legs and feet. Rated medium intensity.',
+    'The core workout specifically targets the abdomen, or the abs. Rated high intensity.',
+    'The glutes workout specifically targets the gluteus maximus muscles. Rated low intensity.',
+    'The arms workout specifically targets the biceps, triceps and forearms. Exercises include lateral raises and shoulder presses. Rated high intensity.',
+    'The shoulders workout specifically targets the shoulder muscles, primarily using the shrugs exercise. Rated low intensity.', 
+    'The neck workout specifically targets the muscles within the neck. Rated low intensity.'
+  ];
+
+  workoutIntensities: string[] = ['medium', 'medium', 'high', 'low', 'high', 'low', 'low'];
+
+  workoutTargetMuscles: string[][] = [
+    ['Trapezius', 'Rhomboids', 'Deltoids', 'Rotator Cuff (Rotators)', 'Pectorals', 'Biceps', 'Triceps', 'Forearm Muscles'],
+    ['Calf muscles', 'Quadriceps', 'Hamstrings', 'Hip muscle', 'Gluteal muscles (glutes)', 'Hip abductors', 'Hip flexors', 'Hip external rotators', 'Adductors'],
+    ['Pyramidalis', 'Rectus abdominus', 'External obliques', 'Internal obliques', 'Transversus abdominis'],
+    ['Gluteus maximus', 'Gluteus medius', 'Gluteus minimus'],
+    ['Biceps brachii', 'Triceps brachii', 'Brachialis', 'Coracobrachialis', 'Anconeus'],
+    ['Supraspinatus', 'Infraspinatus', 'Teres minor', 'Subscapularis'],
+    ['Levator scapulae', 'Sternocleidomastoid (SCM)', 'Trapezius', 'Erector spinae', 'Deep cervical flexors', 'Suboccipitals']
   ];
 
   searchText: string = '';
@@ -80,6 +92,18 @@ export class WorkoutSelectComponent implements OnInit {
       if (d.toLowerCase().includes(this.searchText.toLowerCase()))
         this.searchResults.push(this.workoutDesc.indexOf(d));
     }
+
+    // Third search workout target muscles
+    for (let group of this.workoutTargetMuscles) {
+      for (let muscle of group) {
+        if (muscle.toLowerCase().includes(this.searchText.toLowerCase()))
+          this.searchResults.push(this.workoutTargetMuscles.indexOf(group));
+      }
+    }
+
+    // Select first workout by default
+    if (this.searchResults.length > 0)
+      this.workout = this.searchResults[0];
   }
 
   appendWorkout() {
