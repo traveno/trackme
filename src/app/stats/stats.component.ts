@@ -43,9 +43,13 @@ export class StatsComponent implements OnInit {
     else
       return;
 
-    // Get 10 most recent workouts
-    for (let i = 10; i > 0; i--)
-      this.stats.push(allStats[allStats.length - i]);
+    if (allStats.length <= 10)
+      this.stats.push(...allStats);
+    else {
+      // Get 10 most recent workouts
+      for (let i = 10; i > 0; i--)
+        this.stats.push(allStats[allStats.length - i]);
+    }
 
     for (let s of this.stats) {
       let defs: Exercise[] = [];

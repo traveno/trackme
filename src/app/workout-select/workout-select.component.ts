@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
 import { ApiService } from '../services/api.service';
 import { LoginManagerService } from '../services/login-manager.service';
 import { coreDefs, lowerBodyDefs, upperBodyDefs } from './workout-definitions';
@@ -33,7 +32,7 @@ export class WorkoutSelectComponent implements OnInit {
     'The upper body workout targets all the muscles from the waist up. This includes the back, arms, forearms, chest and shoulders. Rated medium intensity.',
     'The lower body workout targets all muscles from the waist below. This includes the buttocks, legs and feet. Rated medium intensity.',
     'The core workout specifically targets the abdomen, or the abs. Rated high intensity.',
-    'The glutes workout specifically targets the gluteus maximus muscles. Rated low intensity.',
+    'The glutes workout specifically targets the gluteus maximus muscles (buttocks). Rated low intensity.',
     'The arms workout specifically targets the biceps, triceps and forearms. Exercises include lateral raises and shoulder presses. Rated high intensity.',
     'The shoulders workout specifically targets the shoulder muscles, primarily using the shrugs exercise. Rated low intensity.', 
     'The neck workout specifically targets the muscles within the neck. Rated low intensity.'
@@ -161,8 +160,8 @@ export class WorkoutSelectComponent implements OnInit {
     for (let workout of this.workoutPlan) {
       this.api.createStat({
         userGUID: this.loginManager.user!._id!,
-        workout: this.capitalizeFirstLetter(this.workoutNames[this.workout]),
-        reps: (workout.exercises[0].sets + this.intensity) * (workout.exercises[0].reps * this.duration),
+        workout: this.capitalizeFirstLetter(workout.name),
+        reps: (workout.exercises[0].sets + this.intensity) * (workout.exercises[0].reps + this.duration),
         weight: this.weight ?? this.loginManager.user?.weight
       }).subscribe(result => {
         console.log(result);
